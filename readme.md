@@ -11,6 +11,7 @@ Site pour exposer photos ou toiles
 * Symfony CLI
 * Docker
 * Docker Compose
+* nodejs et npm
 
 
 On peut verifier les pré requis (sauf Docker et Docker compose) avec la commande suivante 
@@ -22,6 +23,10 @@ symfony check:requirements
 ### Lancer l'environnement de developmment
 
 ```bash
+composer install
+npm install
+npm run build
+
 docker-compose up -d
 symfony serve -d
 ```
