@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Realisations{% endblock %}
+
+{% block body %}
+
+    <section class="pt-7 pt-md-10">
+        <div class="container ">
+            <div class="row">
+                <div class="col-12">
+                <h2 class="mb-0">
+                    Réalisations
+                </h2>
+                <p class="mb-5 text-muted">
+                    Bout de text blabalbalbalbala parce que voilà un peu hein, faut bien écrire une hrase
+                </p>
+            </div>
+
+    {% for peinture in peintures %}
+        <div class="col-12 col-md-6 d-flex" style="width: 24rem;">
+            <div class="card card mb-6 m-2">
+                <a class="card-img-top" href="#">
+                <img class="card-img-top" src="{{ peinture.file }}" alt="Card image cap">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">{{ peinture.nom }}</h5>
+                    <p class="card-text text-muted">{{ peinture.description }}</p>
+
+                    <p class="h6 text-muted mb-0 ms-auto">
+                        <time>Ajoutée le {{ peinture.createdAt|date('d/m/Y') }}</time>
+                    </p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+        </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            {% do peintures.setPageRange(2) %}
+            {{  knp_pagination_render(peintures, 'base/pagination.html.twig') }}
+        </div>
+    </section>
+
+
+
+{% endblock %}

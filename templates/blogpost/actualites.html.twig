@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+{% block title %}Actualités{% endblock %}
+
+{% block body %}
+
+    <section class="pt-7 pt-md-10">
+        <div class="container ">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="mb-0">
+                        Actualités
+                    </h2>
+                    <p class="mb-5 text-muted">
+                        Bout de text blabalbalbalbala parce que voilà un peu hein, faut bien écrire une phrase
+                    </p>
+                </div>
+
+                {% for blogpost in blogposts %}
+                    <div class="col-12 col-md-6 d-flex" style="width: 24rem;">
+                        <div class="card mb-6 m-2">
+
+
+                            <div class="card-body my-auto">
+                                <a class="card-img-top" href="#">
+                                <h5 class="card-title">{{ blogpost.titre }}</h5>
+                                <p class="card-text text-muted">{{ blogpost.contenu }}</p>
+
+                            </a>
+                                <hr class="card-meta-divider">
+                                <p class="h6 text-muted mb-0 ms-auto">
+                                    <time>Ajoutée le {{ blogpost.createdAt|date('d/m/Y') }}</time>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            {% do blogposts.setPageRange(2) %}
+            {{  knp_pagination_render(blogposts, 'base/pagination.html.twig') }}
+        </div>
+    </section>
+
+
+
+
+{% endblock %}
