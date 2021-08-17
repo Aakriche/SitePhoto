@@ -1,50 +1,36 @@
 <div class="d-flex justify-content-center">
-<section class="pt-8 pt-md-11">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="mb-0">
-                    Actualités
-                </h2>
+    <section class="pt-8 pt-md-11">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="mb-0">
+                        Actualités
+                    </h2>
 
-                <p class="mb-5 text-muted">
-                    texyefg gbguyfyt vufyfjyfg vfu-df
-                </p>
+                    <p class="mb-5 text-muted">
+                        texyefg gbguyfyt vufyfjyfg vfu-df
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 </div>
 
 
 <div class="d-flex justify-content-around">
-    <div class="card" style="width: 18rem;">
+    {% for blogpost in blogposts %}
+    <div class="card" style="width: 32rem;">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-        </div>
-    </div>
+            <h5 class="card-title">{{ blogpost.titre }}</h5>
 
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <p class="card-text">{{ blogpost.contenu|u.truncate(300, '...', false) }}</p>
             <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
+            <p class="h6">
+            <time datetime="2021-08-16"> Ajoutée le {{ blogpost.createdAt|date('d/m/Y') }}</time>
+            </p>
         </div>
     </div>
-
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-        </div>
-    </div>
+    {% endfor %}
 </div>
+
+
