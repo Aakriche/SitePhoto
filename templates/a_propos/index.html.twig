@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}A propos{% endblock %}
+
+{% block body %}
+<section class="py-15 overlay overlay-black overlay-60 container" style="background-image: url('/img/monet-propos.jpg')">
+        <div class="row">
+            <div class="col-12 col-md-7">
+                <blockquote class="blockquote mb-0">
+                    <p class="h2 text-white">
+                        {{ peintre.aPropos }}
+                    </p>
+                    <footer class="blockquote-footer text-white-50 mb-0">
+                        {{ peintre.prenom }} {{ peintre.nom }}
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+
+</section>
+{% endblock %}

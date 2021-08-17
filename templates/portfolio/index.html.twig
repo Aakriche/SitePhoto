@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Portfolio{% endblock %}
+
+{% block body %}
+<section class="pt-12 pt-md-14 pb-12 pb-md-15 bg-gray-900" >
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-7 text-center">
+                <h1 class="display-2 fw-bold text_white">
+                    Portfolio
+                </h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <section class="py-8 py-md-11 mt-n10 mt-md-n14">
+      <div class="container">
+          <div class="row" id="portfolio">
+
+              {% for categorie in categories %}
+              {% set img = categorie.peintures|last %}
+              <div class="col-12 col-md-4 ux">
+                  <a class="card mb-7" href="{{path('portfolio_categorie', {'slug': categorie.slug})}}">
+                      <img class="card-img-top" src="{{ img.file }}" alt="{{ img.nom }}"/>
+                      <div class="card-body">
+                          <h4 class="mb-0">{{ categorie.nom }}</h4>
+                          <small>{{ categorie.description }}</small>
+                      </div>
+                  </a>
+              </div>{% endfor %}
+
+          </div>
+      </div>
+  </section>
+{% endblock %}
