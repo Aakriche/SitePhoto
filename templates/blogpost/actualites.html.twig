@@ -21,7 +21,7 @@
 
 
                             <div class="card-body my-auto">
-                                <a class="card-img-top" href="#">
+                                <a class="card-img-top" href="{{ path('actualites_details', {'slug': blogpost.slug}) }}">
                                 <h5 class="card-title">{{ blogpost.titre }}</h5>
                                 <p class="card-text text-muted">{{ blogpost.contenu }}</p>
 
