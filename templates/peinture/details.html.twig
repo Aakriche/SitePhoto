@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ peinture.nom }}{% endblock %}
+
+{% block body %}
+
+<div class="container-fluid px-md-0">
+    <div class="row justify-content-between gx-0 mx-md-0 mb-6 mb-md-2">
+
+        <div class="col-12 col-md-3 vh-md-100 mx-auto" style="top: 0;">
+            <aside class="flex-grow-1 py-8 py-md-10">
+                <div>
+                    <h2>{{ peinture.nom }}</h2>
+                    {%  for categorie in peinture.categorie %}
+                    <span class="badge bg-secondary">{{ categorie.nom }}</span>
+                    {% endfor %}
+                </div>
+                <p class="fs-lg mb-7 text-muted">
+                    {{ peinture.description }}
+                </p>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <h6 class="d-flex mb-0 text-uppercase">
+                            Date de réalisation
+                            <span class="ms-auto">{{ peinture.dateRealisation|date('d/m/Y') }}</span>
+                        </h6>
+                    </li>
+                    <li class="list-group-item">
+                        <h6 class="d-flex mb-0 text-uppercase">
+                            Largeur
+                            <span class="ms-auto">{{ peinture.largeur }} cm</span>
+                        </h6>
+                    </li>
+                    <li class="list-group-item">
+                        <h6 class="d-flex mb-0 text-uppercase">
+                            Hauteur
+                            <span class="ms-auto">{{ peinture.largeur }} cm</span>
+                        </h6>
+                    </li>
+                    {% if peinture.enVente %}
+                    <li class="list-group-item">
+                        <h6 class="d-flex mb-0 text-uppercase">
+                            Disponible à la vente
+                            <span class="ms-auto"><strong>{{ peinture.prix }} €</strong></span>
+                        </h6>
+                    </li>
+                    {% endif %}
+                </ul>
+            </aside>
+        </div>
+
+        <div class="col-12 col-md-8">
+            <section class="pt-md-10">
+                <img class="w-100 h-auto" src="/img/placeholder.jpg" alt="{{ peinture.nom }}" />
+            </section>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

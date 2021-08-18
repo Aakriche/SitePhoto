@@ -45,6 +45,5 @@ class PeintureRepository extends ServiceEntityRepository
             ->getResult()
             ;
     }
-
-
 }
+
