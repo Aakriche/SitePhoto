@@ -48,7 +48,7 @@ class AppFixtures extends Fixture
 
             $blogpost = new Blogpost();
 
-            $blogpost->setTitre($faker->words(3, true))
+            $blogpost->setTitre((string)$faker->words(3, true))
                 ->setCreatedAt(\DateTimeImmutable::createFromFormat('Y-m-d', "2018-09-09"))
                 ->setContenu($faker->text(350))
                 ->setSlug($faker->slug(3))
@@ -74,7 +74,7 @@ class AppFixtures extends Fixture
             $categorie = new Categorie();
 
             $categorie->setNom($faker->word())
-                ->setDescription($faker->words(10, true))
+                ->setDescription((string)$faker->words(10, true))
                 ->setSlug($faker->slug());
 
             $manager->persist($categorie);
@@ -84,7 +84,7 @@ class AppFixtures extends Fixture
                 $peinture = new Peinture();
 
 
-                $peinture->setNom($faker->words(3, true))
+                $peinture->setNom((string)$faker->words(3, true))
                     ->setHauteur($faker->randomFloat(2,20,60))
                     ->setLargeur($faker->randomFloat(2,20,60))
                     ->setEnVente($faker->randomElement([true, false]))
@@ -108,7 +108,7 @@ class AppFixtures extends Fixture
         $categorie = new Categorie();
 
         $categorie->setNom('categorie test')
-            ->setDescription($faker->words(10, true))
+            ->setDescription((string)$faker->words(10, true))
             ->setSlug('categorie-test');
 
         $manager->persist($categorie);
