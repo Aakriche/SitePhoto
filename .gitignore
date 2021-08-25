@@ -27,3 +27,7 @@ yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 /public/uploads/peintures/*
 !/public/uploads/peintures/placeholder.jpg
+
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###

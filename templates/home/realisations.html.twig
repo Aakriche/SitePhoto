@@ -1,31 +1,28 @@
 <div class="d-flex justify-content-center">
-<section class="pt-8 pt-md-11">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="mb-0">
-                   Dernières réalisations
-                </h2>
+    <section class="pt-8 pt-md-11">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="mb-0">
+                       Dernières réalisations
+                    </h2>
 
-                <p class="mb-5 text-muted">
-                    texyefg gbguyfyt vufyfjyfg vfu-df
-                </p>
+                    <p class="mb-5 text-muted">
+                        texyefg gbguyfyt vufyfjyfg vfu-df
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 </div>
 {# 3 cards #}
 {% for peinture in peintures %}
 <div class="d-flex justify-content-center">
-
     <div class="card mb-3" style="max-width: 540px;">
-
         <div class="row g-0">
-
             <div class="col-md-4">
                 <a class="card-img-top" href="{{ path('realisations_details', {'slug': peinture.slug}) }}">
-                <img src="{{ vich_uploader_asset(peinture, 'imageFile') }}" class="img-fluid rounded-start" alt="{{ peinture.nom }}">
+                <img src="{{ vich_uploader_asset(peinture, 'imageFile')|imagine_filter('miniature') }}" class="img-fluid rounded-start" alt="{{ peinture.nom }}">
                 </a>
             </div>
             <div class="col-md-8">
@@ -37,11 +34,8 @@
                         </small></p>
                 </div>
             </div>
-
         </div>
-
     </div>
-
 </div>
 {%  endfor %}
 

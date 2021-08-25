@@ -52,7 +52,7 @@
 
         <div class="col-12 col-md-8">
             <section class="pt-md-10">
-                <img class="w-100 h-auto" src="{{ vich_uploader_asset(peinture, 'imageFile') }}" alt="{{ peinture.nom }}" />
+                <img class="w-100 h-auto" src="{{ vich_uploader_asset(peinture, 'imageFile')|imagine_filter('full') }}" alt="{{ peinture.nom }}" />
             </section>
         </div>
     </div>
