@@ -25,7 +25,7 @@
 
             <div class="col-md-4">
                 <a class="card-img-top" href="{{ path('realisations_details', {'slug': peinture.slug}) }}">
-                <img src="{{ peinture.file }}" class="img-fluid rounded-start" alt="{{ peinture.nom }}">
+                <img src="{{ vich_uploader_asset(peinture, 'imageFile') }}" class="img-fluid rounded-start" alt="{{ peinture.nom }}">
                 </a>
             </div>
             <div class="col-md-8">

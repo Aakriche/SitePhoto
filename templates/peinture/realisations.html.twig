@@ -20,7 +20,7 @@
         <div class="col-12 col-md-6 d-flex" style="width: 24rem;">
             <div class="card card mb-6 m-2">
                 <a class="card-img-top" href="{{ path('realisations_details', {'slug': peinture.slug}) }}">
-                <img class="card-img-top" src="{{ peinture.file }}" alt="Card image cap">
+                <img class="card-img-top" src="{{ vich_uploader_asset(peinture, 'imageFile')}}" alt="Card image cap">
                 </a>
                 <div class="card-body">
                     <h5 class="card-title">{{ peinture.nom }}</h5>

@@ -20,10 +20,10 @@
           <div class="row" id="portfolio">
 
               {% for categorie in categories %}
-              {% set img = categorie.peintures|last %}
+              {% set peinture = categorie.peintures|last %}
               <div class="col-12 col-md-4 ux">
                   <a class="card mb-7" href="{{path('portfolio_categorie', {'slug': categorie.slug})}}">
-                      <img class="card-img-top" src="{{ img.file }}" alt="{{ img.nom }}"/>
+                      <img class="card-img-top" src="{{ vich_asset_uploader(peinture, 'imageFile') }}" alt="{{ img.nom }}"/>
                       <div class="card-body">
                           <h4 class="mb-0">{{ categorie.nom }}</h4>
                           <small>{{ categorie.description }}</small>

@@ -6,9 +6,13 @@ use App\Repository\PeintureRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 
 /**
  * @ORM\Entity(repositoryClass=PeintureRepository::class)
+ * @Vich\Uploadable
  */
 class Peinture
 {
@@ -45,7 +49,7 @@ class Peinture
     private $prix;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @ORM\Column(type="datetime_immutable", nullable=true)
      */
     private $dateRealisation;
 
@@ -74,6 +78,12 @@ class Peinture
      */
     private $file;
 
+    /**
+     * @Vich\UploadableField(mapping="peinture_images", fileNameProperty="file")
+     * @var File
+     */
+
+    private $imageFile;
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="peintures")
      * @ORM\JoinColumn(nullable=false)
@@ -231,6 +241,20 @@ class Peinture
         $this->file = $file;
 
         return $this;
+    }
+
+    public function setImageFile(File $file = null)
+    {
+        $this->imageFile = $file;
+
+        if ($file) {
+            $this->createdAt = new \DateTimeImmutable('now');
+        }
+    }
+
+    public function getImageFile()
+    {
+        return $this->imageFile;
     }
 
     public function getUser(): ?User

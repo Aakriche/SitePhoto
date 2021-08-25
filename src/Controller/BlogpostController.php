@@ -21,7 +21,7 @@ class BlogpostController extends AbstractController
         Request $request
     ): Response
     {
-        $data = $blogpostRepository->findAll();
+        $data = $blogpostRepository->findBy([], ['id' => 'DESC']);
         $blogposts = $paginator->paginate($data, $request->query->getInt('page', 1), 6);
         return $this->render('blogpost/actualites.html.twig', [
             'blogposts' => $blogposts,
@@ -36,3 +36,4 @@ class BlogpostController extends AbstractController
         return $this->render('blogpost/details.html.twig', ['blogpost' => $blogpost,]);
     }
 }
+

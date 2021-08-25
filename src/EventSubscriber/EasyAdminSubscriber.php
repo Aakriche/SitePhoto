@@ -3,6 +3,7 @@
 namespace App\EventSubscriber;
 
 use App\Entity\Blogpost;
+use App\Entity\Peinture;
 use DateTime;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityPersistedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
@@ -33,17 +34,23 @@ class EasyAdminSubscriber implements EventSubscriberInterface
     {
         $entity = $event->getEntityInstance();
 
-        if(!($entity instanceof Blogpost)){
-            return;
+        switch($entity){
+            case $entity instanceof Blogpost:
+            $now = new DateTime('now');
+            $entity->setCreatedAt($now);
+            $user = $this->security->getUser();
+            $entity->setUser($user);
+            break;
+
+            case $entity instanceof Peinture:
+            $now = new DateTime('now');
+            $entity->setCreatedAt($now);
+            $user = $this->security->getUser();
+            $entity->setUser($user);
+            break;
+
         }
-        $slug = $this->slugger->slug($entity->getTitre());
-        $entity->setSlug($slug);
-
-        $now = new DateTime('now');
-        $entity->setCreatedAt($now);
-
-        $user = $this->security->getUser();
-        $entity->setUser($user);
+            return;
 
     }
 

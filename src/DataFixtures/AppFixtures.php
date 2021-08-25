@@ -93,7 +93,7 @@ class AppFixtures extends Fixture
                     ->setDescription($faker->text())
                     ->setPortfolio($faker->randomElement([true, false]))
                     ->setSlug($faker->slug())
-                    ->setFile('/img/placeholder.jpg')
+                    ->setFile('placeholder.jpg')
                     ->addCategorie($categorie)
                     ->setPrix($faker->randomFloat(2, 100, 9999))
                     ->setUser($user);
@@ -126,7 +126,7 @@ class AppFixtures extends Fixture
             ->setDescription($faker->text())
             ->setPortfolio($faker->randomElement([true, false]))
             ->setSlug('peinture-test')
-            ->setFile('/img/placeholder.jpg')
+            ->setFile('placeholder.jpg')
             ->addCategorie($categorie)
             ->setPrix($faker->randomFloat(2, 100, 9999))
             ->setUser($user);
