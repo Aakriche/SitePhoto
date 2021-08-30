@@ -25,7 +25,7 @@
 
                 {% for peinture in peintures %}
                     <div class="col-12 col-md-4 ">
-                    <a class="card mb-7" href="#" data-bigpicture='{"imgSrc": "{{ vich_uploader_asset(peinture, "imageFile")|imagine_filter('full') }}"}'>
+                    <a class="card mb-7" href="{{ path('realisations_details', {'slug': peinture.slug}) }}" data-bigpicture='{"imgSrc": "{{ vich_uploader_asset(peinture, "imageFile")|imagine_filter('full') }}"}'>
                         <div class="card-zoom">
                             <img class="card-img-top" src="{{ vich_uploader_asset(peinture, "imageFile")|imagine_filter('portfolio') }}" alt="{{ peinture.nom }}"/>
                         </div>

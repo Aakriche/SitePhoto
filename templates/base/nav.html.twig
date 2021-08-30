@@ -24,9 +24,12 @@
                         Portfolio
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        {%  for categorie in categorieNavbar() %}
                         <li class="dropdown-item dropend">
-                            <a href="{{ path('portfolio_categorie', {'slug': categorie.slug}) }}">{{ categorie.nom }}</a>
+                            <a class="text-decoration-none" href="{{ path('portfolio') }}">Portfolio</a>
+                        </li>
+                        {%  for categorie in categorieNavbar() %}
+                        <li class="dropdown-item dropend ">
+                            <a class="text-decoration-none" href="{{ path('portfolio_categorie', {'slug': categorie.slug}) }}">{{ categorie.nom }}</a>
                         </li>
                         {%  endfor %}
                     </ul>
