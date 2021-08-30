@@ -12,7 +12,7 @@
                     Réalisations
                 </h2>
                 <p class="mb-5 text-muted">
-                    Bout de text blabalbalbalbala parce que voilà un peu hein, faut bien écrire une hrase
+                    Les toutes dernières réalisations
                 </p>
             </div>
 
@@ -22,7 +22,7 @@
                 <a class="card-img-top" href="{{ path('realisations_details', {'slug': peinture.slug}) }}">
                 <img class="card-img-top" src="{{ vich_uploader_asset(peinture, 'imageFile')|imagine_filter('miniature')}}" alt="Card image cap">
                 </a>
-                <div class="card-body">
+                <div class="card-body custom-shadow">
                     <h5 class="card-title">{{ peinture.nom }}</h5>
                     <p class="card-text text-muted">{{ peinture.description }}</p>
 

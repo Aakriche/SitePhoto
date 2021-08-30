@@ -8,7 +8,7 @@
                     </h2>
 
                     <p class="mb-5 text-muted">
-                        texyefg gbguyfyt vufyfjyfg vfu-df
+                        Les dernières actualités
                     </p>
                 </div>
             </div>
@@ -20,7 +20,7 @@
 <div class="d-flex justify-content-around">
     {% for blogpost in blogposts %}
     <div class="card" style="width: 32rem;">
-        <div class="card-body">
+        <div class="card-body custom-shadow">
             <h5 class="card-title">{{ blogpost.titre }}</h5>
 
             <p class="card-text">{{ blogpost.contenu|u.truncate(300, '...', false) }}</p>

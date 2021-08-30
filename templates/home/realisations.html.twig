@@ -4,11 +4,11 @@
             <div class="row">
                 <div class="col-12">
                     <h2 class="mb-0">
-                       Dernières réalisations
+                       Réalisations
                     </h2>
 
                     <p class="mb-5 text-muted">
-                        texyefg gbguyfyt vufyfjyfg vfu-df
+                        Les toutes dernières réalisations
                     </p>
                 </div>
             </div>
@@ -18,7 +18,7 @@
 {# 3 cards #}
 {% for peinture in peintures %}
 <div class="d-flex justify-content-center">
-    <div class="card mb-3" style="max-width: 540px;">
+    <div class="card mb-3 custom-shadow" style="max-width: 540px;">
         <div class="row g-0">
             <div class="col-md-4">
                 <a class="card-img-top" href="{{ path('realisations_details', {'slug': peinture.slug}) }}">
