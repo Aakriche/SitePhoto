@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello BlogpostController!
+{% block title %}{{ blogpost.titre }}
 {% endblock %}
 
 {% block body %}
@@ -38,5 +38,8 @@
         </div>
     </div>
 </section>
+
+    {%  include "commentaire/form.html.twig" %}
+    {%  include "commentaire/commentaire.html.twig" %}
 
 {%  endblock %}

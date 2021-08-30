@@ -38,14 +38,19 @@ class Commentaire
     private $createdAt;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Peinture::class, inversedBy="commentaires")
+     * @ORM\ManyToOne(targetEntity=Peinture::class, inversedBy="commentaire")
      */
     private $peinture;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Blogpost::class, inversedBy="commentaires")
+     * @ORM\ManyToOne(targetEntity=Blogpost::class, inversedBy="commentaire")
      */
     private $blogpost;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isPublished;
 
     public function getId(): ?int
     {
@@ -120,6 +125,18 @@ class Commentaire
     public function setBlogpost(?Blogpost $blogpost): self
     {
         $this->blogpost = $blogpost;
+
+        return $this;
+    }
+
+    public function getIsPublished(): ?bool
+    {
+        return $this->isPublished;
+    }
+
+    public function setIsPublished(bool $isPublished): self
+    {
+        $this->isPublished = $isPublished;
 
         return $this;
     }

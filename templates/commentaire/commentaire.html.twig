@@ -1,0 +1,21 @@
+<section>
+    {% for com in commentaires %}
+    <div class="container mb-2">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-9 col-xl-8">
+                <div class="card">
+                    <div class="card-header">
+                        {{ com.createdAt|date('d/m/Y') }}
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p> {{ com.contenu }}</p>
+                            <footer class="blockquote-footer"><cite title="Source Title">{{ com.auteur }}</cite></footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</section>
